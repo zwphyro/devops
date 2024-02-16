@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  nginx:
+
+    container_name: nginx
+
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+    restart: unless-stopped
+
+    ports:
+      - 80:80
+
+    command: "nginx -g 'daemon off;'"
+
+    volumes:
+      - ./www:/www
